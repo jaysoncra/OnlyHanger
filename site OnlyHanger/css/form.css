@@ -17,15 +17,20 @@ form {
     text-align: center;
 }
 
-form input {
-    border-radius: 100em;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em;
-    outline: none;
-    padding: .5rem 1.5rem;
-    width: 70%;
-    text-align: center;
+form input{
+
+font-size: inherit; 
+font-family: inherit; 
+line-height: 1;
+padding: 0 1em;
+background-color: #fff;
+border: 2px solid silver;
+width: clamp(150px, 50%, 300px);
+height: 2.25rem;
+border-radius: 30px;
 }
+
+
 
 .form-group input {
     border: 2px solid red;
@@ -40,4 +45,4 @@ form input {
 
 .form-group label {
     font-size: 30px;
-}
+}-->

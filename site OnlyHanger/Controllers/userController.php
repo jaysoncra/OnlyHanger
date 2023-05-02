@@ -10,7 +10,7 @@ if($uri === "/inscription"){
         $messageErrorLogin = verifData();
         if(!$messageErrorLogin) {
             var_dump($pdo);
-            createUser($pdo);
+            createUtilisateur($pdo);
             header('location:/connexion');
         }
     }
@@ -25,7 +25,7 @@ if($uri === "/inscription"){
     if(isset($_POST["btnEnvoi"])){ 
         $messageErrorLogin = verifData();
         if(!isset($messageErrorLogin)) {
-            searchUser($pdo);
+            searchUtilisateur($pdo);
             header('location:/');
         }
     }
@@ -33,7 +33,7 @@ if($uri === "/inscription"){
 
 } elseif ($uri === "/profil") {
     if(isset($_POST["btnEnvoi"])) {
-        UpdateUser($pdo);
+        UpdateUtilisateur($pdo);
         UpdateSession($pdo);
         header('location:/profil');
     }

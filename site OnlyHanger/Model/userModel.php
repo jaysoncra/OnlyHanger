@@ -2,11 +2,13 @@
 
 function createUtilisateur($pdo){
     try {
-        $query = "insert into utilisateurs(UtilisateurNom, UtilisateurPrenom, UtilisateurMotDePasse, role) values (:UtilisateurNom, :UtilisateurPrenom, :, :UtilisateurMotDePasse, :role)";
+        $query = "insert into utilisateurs(UtilisateurNom, UtilisateurPrenom, UtilisateurMotDePasse, UtilisateurVille, UtilisateurEmail, Utilisateur role) values (:UtilisateurNom, :UtilisateurPrenom, :, :UtilisateurMotDePasse, :UtilisateurVille, :UtilisateurEmail, :role)";
         $ajouteUtilisateur = $pdo->prepare($query);
         $ajouteUtilisateur->execute([
             'UtilisateurNom' => $_POST['nom'],
             'UtilisateurPrenom' => $_POST['prenom'],
+            'UtilisateurVille' => $_POST['ville'],
+            'UtilisateurEmail' => $_POST['email'],
             'UtilisateurMotDePasse' => $_POST['mot_de_passe'],
             'role' => 'Utilisateur'
         ]);
@@ -18,7 +20,7 @@ function createUtilisateur($pdo){
 
 function searchUtilisateur($pdo){
     try {
-        $query = "select * from utilisateur where utiliPseudo = :utiliPseudo and utiliMdp = :utiliMdp";
+        $query = "select * from utilisateur where UtilisateurEmail = :UtilisateurEmail and UtilisateurMotDePasse = :UtilisateurMotDePasse";
         $connectUtilisateur = $pdo->prepare($query);
         $connectUtilisateur->execute([
             'UtilisateurMotDePasse' => $_POST['mot_de_passe'],
@@ -36,10 +38,10 @@ function searchUtilisateur($pdo){
 function UpdateSession($pdo)
 {
     try {
-        $query = "select * from utilisateur where id=:id";
+        $query = "select * from Utilisateur where UtilisateurID=:UtilisateurID";
         $chercheUtilisateur = $pdo->prepare($query);
         $chercheUtilisateur->execute([
-            'id' => $_SESSION['Utilisateur']->id
+            'UtilisateurID' => $_SESSION['Utilisateur']-> ID
         ]);
         $Utilisateur = $chercheUtilisateur->fetch();
         $_SESSION['Utilisateur']=$Utilisateur;
@@ -52,14 +54,15 @@ function UpdateSession($pdo)
 function UpdateUtilisateur($pdo)
 {
     try {
-        $query = "update utilisateurs set UtilisateurNom=:UtilisateurNom, UtilisateurPrenom=:UtilisateurPrenom, UtilisateurEmail=:UtilisateurEmail, UtilisateurMotDePasse=:UtilisateurMotDePasse where id=:id";
+        $query = "update utilisateurs set UtilisateurNom=:UtilisateurNom, UtilisateurPrenom=:UtilisateurPrenom, UtilisateurEmail=:UtilisateurEmail, UtilisateurMotDePasse=:UtilisateurMotDePasse, UtilisateurVille=:UtilisateurVille where UtilisateurID=:UtilisateurID";
         $changeUtilisateur = $pdo->prepare($query);
         $changeUtilisateur->execute([
             'UtilisateurNom' => $_POST['nom'],
             'UtilsateurPrenom' => $_POST['prenom'],
             'UtilsateurMotDePasse' => $_POST['mot_de_passe'],
             'UtilisateurEmail' => $_POST['email'],
-            'UtilisateurID' => $_SESSION['Utilisateur']->id
+            'UtilisateurVille' => $_POST['Ville'],
+            'UtilisateurID' => $_SESSION['Utilisateur']-> ID
         ]);
     }   catch (PDOException $e) { 
         $message = $e->getMessage();
