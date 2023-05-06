@@ -1,23 +1,26 @@
 <form method="post" action="">
     <fieldset>
         <legend>Inscription</legend>
-        <div class="mb-3">
+        <div class="mb-3 exemple-pattern-css">
             <label for="Nom" class="form-label">Nom</label>
-            <input type="text" placeholder="Nom" class="form-control" id="Nom" name="nom" value=""  required minlength="2" maxlength="25">
+            <input type="text" pattern="^[( )a-zA-Z]+$" placeholder="Nom" class="form-control" id="Nom" name="nom" value=""  required minlength="2" maxlength="25">
+            <span>Veuillez entrer uniquement des lettres</span>
             <?php if(isset($messageErrorLogin['nom'])) : ?> <p><?= $messageErrorLogin['nom'] ?></p> <?php endif ?>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 exemple-pattern-css">
             <label for="Prenom" class="form-label">Prénom</label>
-            <input type="text" placeholder="Prénom" class="form-control" id="Prenom" name="prenom" value="" required minlength="2" maxlength="25">
+            <input type="text" pattern="^[( )a-zA-Z]+$" placeholder="Prénom" class="form-control" id="Prenom" name="prenom" value="" required minlength="2" maxlength="25">
+            <span>Veuillez entrer uniquement des lettres</span>
             <?php if(isset($messageErrorLogin['prenom'])) : ?> <p><?= $messageErrorLogin['prenom'] ?></p> <?php endif ?>
         </div>
-        <div class="mb-3">-+
+        <div class="mb-3">
             <label for="Ville" class="form-label">Ville</label>
             
             <select name="villes" id="ville-select">
                 <option value="">--Veulliez choisir une ville--
             </option>
                 <option value="anvers">Anvers</option>
+                <option value="bastogne">Bastogne</option>
                 <option value="bruges">Bruges</option>
                 <option value="bruxelles">Bruxelles</option>
                 <option value="gand">Gand</option>

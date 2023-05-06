@@ -2,7 +2,7 @@
 
 function createUtilisateur($pdo){
     try {
-        $query = "insert into utilisateurs(UtilisateurNom, UtilisateurPrenom, UtilisateurMotDePasse, UtilisateurVille, UtilisateurEmail, Utilisateur role) values (:UtilisateurNom, :UtilisateurPrenom, :, :UtilisateurMotDePasse, :UtilisateurVille, :UtilisateurEmail, :role)";
+        $query = "insert into utilisateurs(UtilisateurNom, UtilisateurPrenom, UtilisateurMotDePasse, UtilisateurVille, UtilisateurEmail, UtilisateurRole) values (:UtilisateurNom, :UtilisateurPrenom, :, :UtilisateurMotDePasse, :UtilisateurVille, :UtilisateurEmail, :role)";
         $ajouteUtilisateur = $pdo->prepare($query);
         $ajouteUtilisateur->execute([
             'UtilisateurNom' => $_POST['nom'],
