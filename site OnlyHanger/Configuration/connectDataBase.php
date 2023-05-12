@@ -9,6 +9,6 @@ try {
     ]);
 } catch (PDOException $e) {
     $msg = 'ERREUR PDO dans ' .  $e->getMessage();
-    die ("ERREUR : " . $e -> getMessage());
+    die ("ERREUR ! : " . $e -> getMessage());
 }
-?>
+?> 

@@ -1,6 +1,14 @@
 <?php
-    session_start();
-    require_once "Configuration/dataBase.php";
+session_start();
+require_once "Configuration/ConnectDataBase.php";
+/*$query = "select * from utilisateur";
+$sth = $pdo->prepare($query);
+$sth->execute();
+
+/* Fetch all of the remaining rows in the result set
+print("Fetch all of the remaining rows in the result set:\n");
+$result = $sth->fetchAll();
+print_r($result);*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,24 +16,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/animation.css">
-    <link rel="stylesheet" href="CSS/flex.css">
-    <link rel="stylesheet" href="CSS/form.css">
     <title>Mon agence</title>
 </head>
+
 <body>
     <header>
-        <ul class="flex space-evenly">
-            <li class="menu"><a href="/">Home</a></li>
-            <li  class="menu"><a href="profil">Page profil</a></li>
-            <li  class="menu"><a href="connexion">Connexion</a></li>
-        </ul>
+        <a href="/">Accueil</a>
+        <a href="connexion">Connexion</a>
+        <a href="inscription">Inscription</a>
+        <!--<ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="profil">Page profil</a></li>
+            </*?php if($_SESSION["utilisateur"]) : ?>
+                <li><a href="deconnexion">Déconnexion</a></li>
+            </*?php else : ?>
+                <li><a href="connexion">Connexion</a></li>
+            </*?php endif ?>
+        </ul>-->
     </header>
     <main>
         <?php 
-            require_once "Controllers/userController.php"; 
+            require_once "Controllers/portemanteauxController.php";
+            require_once "Controllers/usersController.php";
+            /*var_dump($_SESSION);*/
         ?>
     </main>
+    <footer>
+        <h1>Ce sera un footer</h1>
+    </footer>
 </body>
 </html>
+ 

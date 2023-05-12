@@ -4,9 +4,26 @@ require_once "Model/userModel.php";
 
 $uri = $_SERVER["REQUEST_URI"];
 
+if($uri === "/connexion"){
+    require_once "Templates/Users/connexion.php";
+}elseif ($uri === "/inscription"){
+    var_dump($_POST);
+    if(isset($_POST["btnEnvoi"])){
+        //var_dump("j'ai cliqué sur le bouton");
+        createUser($pdo);
+        header("location:/connexion");
+    }
+    require_once "Templates/Users/inscriptionOrEditProfil.php";
+}
+/*
+require_once "Model/userModel.php";
+
+$uri = $_SERVER["REQUEST_URI"];
+
 
 if($uri === "/inscription"){
-    if(isset($_POST["btnEnvoi"])){ 
+    //  var_dump($_POST);
+    if(isset($_POST["btnEnvoi"])) { 
         $messageErrorLogin = verifData();
         if(!$messageErrorLogin) {
             var_dump($pdo);
@@ -25,7 +42,7 @@ if($uri === "/inscription"){
     if(isset($_POST["btnEnvoi"])){ 
         $messageErrorLogin = verifData();
         if(!isset($messageErrorLogin)) {
-            searchUtilisateur($pdo);
+            connectUtilisateur($pdo);
             header('location:/');
         }
     }
@@ -65,4 +82,4 @@ function verifData(){
 }
 
 
-?>
+?>*/ 

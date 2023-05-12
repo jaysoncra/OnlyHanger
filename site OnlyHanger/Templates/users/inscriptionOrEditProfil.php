@@ -1,66 +1,63 @@
+<h1>Page d'inscription</h1>
 <form method="post" action="">
     <fieldset>
         <legend>Inscription</legend>
-        <div class="mb-3 exemple-pattern-css">
-            <label for="Nom" class="form-label">Nom</label>
-            <input type="text" pattern="^[( )a-zA-Z]+$" placeholder="Nom" class="form-control" id="Nom" name="nom" value=""  required minlength="2" maxlength="25">
-            <span>Veuillez entrer uniquement des lettres</span>
+        <div>
+            <label for="Nom">Nom</label>
+            <input type="text" pattern="^[( )a-zA-Z]+$" placeholder="Nom" id="Nom" name="nom" value=""  required minlength="2" maxlength="25">
             <?php if(isset($messageErrorLogin['nom'])) : ?> <p><?= $messageErrorLogin['nom'] ?></p> <?php endif ?>
         </div>
-        <div class="mb-3 exemple-pattern-css">
-            <label for="Prenom" class="form-label">Prénom</label>
-            <input type="text" pattern="^[( )a-zA-Z]+$" placeholder="Prénom" class="form-control" id="Prenom" name="prenom" value="" required minlength="2" maxlength="25">
-            <span>Veuillez entrer uniquement des lettres</span>
+        <div>
+            <label for="Prenom">Prénom</label>
+            <input type="text" pattern="^[( )a-zA-Z]+$" placeholder="Prénom" id="Prenom" name="prenom" value="" required minlength="2" maxlength="25">
             <?php if(isset($messageErrorLogin['prenom'])) : ?> <p><?= $messageErrorLogin['prenom'] ?></p> <?php endif ?>
         </div>
-        <div class="mb-3">
-            <label for="Ville" class="form-label">Ville</label>
+        <div>
+            <label for="Ville">Ville</label>
             
-            <select name="villes" id="ville-select">
-                <option value="">--Veulliez choisir une ville--
-            </option>
-                <option value="anvers">Anvers</option>
-                <option value="bastogne">Bastogne</option>
-                <option value="bruges">Bruges</option>
-                <option value="bruxelles">Bruxelles</option>
-                <option value="gand">Gand</option>
-                <option value="houffalize">Houffalize</option>
-                <option value="liège">Liège</option>
-                <option value="namur">Namur</option>
-                <option value="charleroi">Charleroi</option>
-                <option value="louvain">Louvain</option>
-                <option value="mons">Mons</option>
-                <option value="malines">Maline</option>
-                <option value="alost">Alost</option>
-                <option value="la_louvière">La Louvière</option>
-                <option value="hasselt">Hasselt</option>
-                <option value="saint-nicolas">Saint-Nicolas</option>
-                <option value="courtrai">Courtrai</option>
-                <option value="ostende">Ostende</option>
-                <option value="tournai">Tournai</option>
-                <option value="genk">Genk</option>
-                <option value="seraing">Seraing</option>
-                <option value="roulers">Roulers</option>
-                <option value="mouscron">Mouscron</option>
-                <option value="vervier">Vervier</option>
-                <option value=""></option>
+            <select name="villes" id="ville-select" required>
+                <option value="">--Veulliez choisir une ville--</option>
+                <option value="Anvers">Anvers</option>
+                <option value="Bastogne">Bastogne</option>
+                <option value="Bruges">Bruges</option>
+                <option value="Bruxelles">Bruxelles</option>
+                <option value="Gand">Gand</option>
+                <option value="Houffalize">Houffalize</option>
+                <option value="Liège">Liège</option>
+                <option value="Namur">Namur</option>
+                <option value="Charleroi">Charleroi</option>
+                <option value="Louvain">Louvain</option>
+                <option value="Mons">Mons</option>
+                <option value="Malines">Maline</option>
+                <option value="Alost">Alost</option>
+                <option value="La_louvière">La Louvière</option>
+                <option value="Hasselt">Hasselt</option>
+                <option value="Saint-nicolas">Saint-Nicolas</option>
+                <option value="Courtrai">Courtrai</option>
+                <option value="Ostende">Ostende</option>
+                <option value="Tournai">Tournai</option>
+                <option value="Genk">Genk</option>
+                <option value="Seraing">Seraing</option>
+                <option value="Roulers">Roulers</option>
+                <option value="Mouscron">Mouscron</option>
+                <option value="Vervier">Vervier</option>
             </select>
         
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" placeholder="Email" class="form-control" id="email" name="email" value="" required>
+        <div >
+            <label for="Email">Email</label>
+            <input type="email" placeholder="Email" id="Email" name="email" value="" required>
             <?php if(isset($messageErrorLogin['email'])) : ?> <p><?= $messageErrorLogin['email'] ?></p> <?php endif ?>
         </div>
-        <div class="mb-3">
-            <label for="Password" class="form-label">Mot de passe</label>
-            <input type="password" placeholder="Mot de passe" class="form-control" id="Password" name="mot_de_passe" value="" required minlenght="6">
+        <div >
+            <label for="Password">Mot de passe</label>
+            <input type="password" placeholder="Mot de passe" id="Password" name="mot_de_passe" value="" minlength="8" required>
             <?php if(isset($messageErrorLogin['nom'])) : ?> <p><?= $messageErrorLogin['mot_de_passe'] ?></p> <?php endif ?>
         </div>
         <div>
-            <?php if(isset($_SESSION["Utilisateur"])) :?><button name="btnEnvoi" class="btn btn-primary" value="Mettre à jour">Mettre à jour</button><?php endif ?>
-            <?php if(!isset($_SESSION["Utilisateur"])) :?><button name="btnEnvoi" class="btn btn-primary" value="Mettre à jour">Envoyer</button><?php endif ?>    
-        </div></p>
-            <?php if(isset($_SESSION["Utilisateur"])) :?><button name="btnSuppression" class="btn btn-primary"value="supprimer">Supprimer</button><?php endif ?>
+            <!--</*?php if(isset($_SESSION["Utilisateur"])) :?><button name="btnEnvoi" value="update">Mettre à jour</button></*?php endif ?>-->
+            <!--</*?php if(!isset($_SESSION["Utilisateur"])) :?>--><button name="btnEnvoi" value="send">S'inscrire</button><!--</*?php endif ?>-->    
+        </div>
+            <!--</*?php if(isset($_SESSION["Utilisateur"])) :?><button name="btnSuppression" value="delete">Supprimer</button></*?php endif ?>-->
         </div>
     </fieldset>
 </form>

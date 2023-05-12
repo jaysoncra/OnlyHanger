@@ -1,8 +1,8 @@
 <?php
-
+/*
 function createMagasin($pdo){
     try {
-        $query = "insert into Magasin(MagasinNom, MagasinVille) values (:MagasinNom, :MagasinVille)";
+        $query = "insert into magasin (MagasinNom, MagasinVille) values (:MagasinNom, :MagasinVille)";
         $ajouteMagasin = $pdo->prepare($query);
         $ajouteMagasin->execute([
             'MagasinNom' => $_POST['nom'],
@@ -16,11 +16,11 @@ function createMagasin($pdo){
 function UpdateMagasin($pdo)
 {
     try {
-        $query = "update Magasin set MagasinNom=:MagasinNom, MagasinVille=:MagasinVille where MagasinID=:MagasinID";
+        $query = "update magasin set MagasinNom=:MagasinNom, MagasinVille=:MagasinVille where MagasinID=:MagasinID";
         $changeMagasin = $pdo->prepare($query);
         $changeMagasin->execute([
             'MagasinNom' => $_POST['nom'],
-            'MagasinVille' => $_POST['Ville'],
+            'MagasinVille' => $_POST['villes'],
             //'MagasinID' =>
         ]);
     }   catch (PDOException $e) { 
@@ -32,7 +32,7 @@ function UpdateMagasin($pdo)
 function DeleteMagasin($pdo)
 {
     try {
-        $query = "delete from Magasin where MagasinID=:MagasinID;";
+        $query = "delete from magasin where MagasinID=:MagasinID;";
         $deleteMagasin = $pdo->prepare($query);
         $deleteMagasin -> execute([
             //'MagasinID' => 
@@ -41,4 +41,4 @@ function DeleteMagasin($pdo)
         $message = $e->getMessage();
         die($message);
     }
-}
+}*/
