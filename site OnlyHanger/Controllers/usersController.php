@@ -4,17 +4,54 @@ require_once "Model/userModel.php";
 
 $uri = $_SERVER["REQUEST_URI"];
 
-if($uri === "/connexion"){
-    require_once "Templates/Users/connexion.php";
-}elseif ($uri === "/inscription"){
+if ($uri === "/connexion"){
     var_dump($_POST);
     if(isset($_POST["btnEnvoi"])){
-        //var_dump("j'ai cliqué sur le bouton");
-        createUser($pdo);
-        header("location:/connexion");
+        var_dump("cliqued");
+        connectUser($pdo);
+        header("location:/");
+    }
+    require_once "Templates/Users/connexion.php";
+} elseif ($uri === "/profil"){
+    if (isset($_POST["btnEnvoi"])) {
+        var_dump("cliqued");
+        updateUser($pdo);
+        updateSession($pdo);
+        header("location:/profil");
+    }
+    require_once "Templates/Users/inscriptionOrEditProfil.php";
+} elseif ($uri === "/message"){
+    require_once "Templates/Users/chat.php";
+} elseif ($uri === "/deconnexion"){
+    session_destroy();
+    header("location:/");
+} elseif ($uri === "/inscription"){
+    var_dump($_POST);
+    if(isset($_POST["btnEnvoi"])){
+        $messageError = verifData();
+        var_dump($messageError);
+        if(!isset($messageError)){
+            createUser($pdo);
+            header("location:/connexion");
+        }
     }
     require_once "Templates/Users/inscriptionOrEditProfil.php";
 }
+function verifData(){
+    foreach ($_POST as $key => $value){
+        var_dump($key . "=>" . $value);
+        if (empty($value)){
+            $messageError[$key] = "Votre " . $key . " est vide.";
+        }
+    } if (isset($messageError)){
+        return $messageError;
+    } else {
+        return false;   
+    }
+}
+
+
+
 /*
 require_once "Model/userModel.php";
 

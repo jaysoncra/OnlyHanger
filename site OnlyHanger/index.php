@@ -16,29 +16,29 @@ print_r($result);*/
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon agence</title>
+    <title>OnlyHanger</title>
 </head>
 
 <body>
     <header>
-        <a href="/">Accueil</a>
-        <a href="connexion">Connexion</a>
-        <a href="inscription">Inscription</a>
-        <!--<ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="profil">Page profil</a></li>
-            </*?php if($_SESSION["utilisateur"]) : ?>
-                <li><a href="deconnexion">Déconnexion</a></li>
-            </*?php else : ?>
-                <li><a href="connexion">Connexion</a></li>
-            </*?php endif ?>
-        </ul>-->
+        <a href="/">Home</a>
+
+        <?php if(isset($_SESSION["user"])) : ?>
+            <a href="message">Chat</a>
+            <a href="profil">Profil</a>
+            <a href="deconnexion">Sign out</a>
+        <?php else : ?>
+            <a href="connexion">Sign in</a>
+            <a href="inscription">Sign up</a>
+        <?php endif ?>
+
+            
+
     </header>
     <main>
         <?php 
             require_once "Controllers/portemanteauxController.php";
             require_once "Controllers/usersController.php";
-            /*var_dump($_SESSION);*/
         ?>
     </main>
     <footer>

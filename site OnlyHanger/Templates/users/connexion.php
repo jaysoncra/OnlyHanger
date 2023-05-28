@@ -11,7 +11,7 @@
             <input type="password" placeholder="Password" id="Password" name="mot_de_passe" value="" minlength="8" required>
         </div>
         <div>
-            <button name="btnEnvoi">Se connecter</button>
+            <button name="btnEnvoi" value="">Se connecter</button>
         </div>
     </fieldset>
 </form>
