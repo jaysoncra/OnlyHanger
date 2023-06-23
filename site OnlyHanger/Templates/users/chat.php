@@ -1,5 +1,5 @@
-<h1>Tous les utilisateur sur le site</h1>
-<?php 
+<!--<h1>Tous les utilisateur sur le site</h1>
+<?php /*
 
  
 if (!isset($_SESSION['user'])){
@@ -13,4 +13,4 @@ $afficher_profil = $pdo->query("SELECT *
   WHERE UtilisateurID <> ?",
   array($_SESSION['user']));
 $afficher_profil = $afficher_profil->fetchAll();
-?>
+?>*/

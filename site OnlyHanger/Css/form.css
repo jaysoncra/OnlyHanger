@@ -1,4 +1,61 @@
-form label {
+
+input {  
+
+    --input-focus: 245 100% 42%;/*couleur du focus*/
+    font-size: inherit;
+    transition: 180ms box-shadow ease-in-out;
+    font-family: inherit;
+    font-size: inherit;
+    color: black;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid silver;
+    width: clamp(150px, 50%, 300px);
+    height: 2.25rem
+            
+    }
+input:focus {
+
+    border-color: hsl(var(--input-focus));
+    box-shadow: 0 0 0 3px hsl(245 100% calc(42% + 40%)/ .8);
+    outline: 3px solid transparent;
+    
+    }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*form label {
     display: block;
     font-size: 2em;
     margin: 10px 0;
@@ -41,3 +98,18 @@ form input {
 .form-group label {
     font-size: 30px;
 }
+
+label{
+
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    
+    }
+    
+input{
+    
+    height:30px;
+    width:30px;
+    accent-color:#6753ea /*la magie se passe ici !
+    }*/

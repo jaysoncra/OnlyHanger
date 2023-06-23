@@ -8,23 +8,21 @@ main {
     margin: 0 auto;
 }
 
-/* Mettre les titres h1 en couleur bleue, taille 50px et la police en Arial */
+/* Mettre les titres h1 en couleur brun, taille 50px et la police en Arial */
 h1 {
-    color: rgb(228, 127, 33);
+    color: rgb(147, 75, 8);
     font-size: 50px;
     font-family: Arial, Helvetica, sans-serif;
-    text-decoration: underline;
     text-align: center;
 }
 
 h2 {
-    color: green;
+    color: rgb(23, 18, 104);
     font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    text-decoration: wavy underline overline;
+    font-family: 'Times New Roman', Times, serif
 }
 
-img {
+/*img {
     width: 300px;
     height: auto;
 }

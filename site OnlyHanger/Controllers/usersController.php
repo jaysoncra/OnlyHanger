@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model/userModel.php";
+require_once "Model/portemanteauModel.php";
 
 $uri = $_SERVER["REQUEST_URI"];
 
@@ -26,10 +27,8 @@ if ($uri === "/connexion"){
     session_destroy();
     header("location:/");
 } elseif ($uri === "/inscription"){
-    var_dump($_POST);
     if(isset($_POST["btnEnvoi"])){
         $messageError = verifData();
-        var_dump($messageError);
         if(!isset($messageError)){
             createUser($pdo);
             header("location:/connexion");
@@ -37,6 +36,7 @@ if ($uri === "/connexion"){
     }
     require_once "Templates/Users/inscriptionOrEditProfil.php";
 }
+
 function verifData(){
     foreach ($_POST as $key => $value){
         var_dump($key . "=>" . $value);
@@ -46,7 +46,7 @@ function verifData(){
     } if (isset($messageError)){
         return $messageError;
     } else {
-        return false;   
+        return null;   
     }
 }
 

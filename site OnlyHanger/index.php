@@ -17,23 +17,18 @@ print_r($result);*/
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnlyHanger</title>
+    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="Css/flex.css">
+    <link rel="stylesheet" href="Css/form.css">
+    <link rel="stylesheet" href="header.css">
+
 </head>
 
 <body>
     <header>
-        <a href="/">Home</a>
-
-        <?php if(isset($_SESSION["user"])) : ?>
-            <a href="message">Chat</a>
-            <a href="profil">Profil</a>
-            <a href="deconnexion">Sign out</a>
-        <?php else : ?>
-            <a href="connexion">Sign in</a>
-            <a href="inscription">Sign up</a>
-        <?php endif ?>
-
-            
-
+     <?php
+      require_once "Components/header.php";
+      ?>
     </header>
     <main>
         <?php 
@@ -42,7 +37,9 @@ print_r($result);*/
         ?>
     </main>
     <footer>
-        <h1>Ce sera un footer</h1>
+        <?php 
+            require_once "Components/footer.php";
+        ?>
     </footer>
 </body>
 </html>

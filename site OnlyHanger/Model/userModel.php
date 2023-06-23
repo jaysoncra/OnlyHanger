@@ -10,7 +10,7 @@ function createUser($pdo){
             "UtilisateurVille" => $_POST["villes"],
             "UtilisateurEmail" => $_POST["email"],
             "UtilisateurMotDePasse" => $_POST["mot_de_passe"],
-            "UtilisateurRole" => "user"         
+            "UtilisateurRole" => "user"
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();
